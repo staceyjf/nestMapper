@@ -20,7 +20,7 @@
     <br />
     <a href="">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/staceyjf/nestMapper/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
   </p>
 </div>
 
@@ -83,19 +83,51 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/staceyjf/nestMapper.git
+   ```
+2. Switch to the repo folder
+   ```sh
+   cd nestMapper
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+4. Copy config file and set JsonWebToken secret key`
+
+   ```sh
+   cp src/config.ts.example src/config.ts
    ```
+
+5. Create a new mysql database with the name `nestMapperExample`\
+   (or the name you specified in the ormconfig.json)
+
+6. Copy TypeORM config example file for database settings
+
+   ```sh
+   cp ormconfig.json.example ormconfig.json
+   ```
+
+   and update with your mysql database settings
+
+```
+  {
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "your-mysql-username",
+    "password": "your-mysql-password",
+    "database": "nestjsrealworld",
+    "entities": ["src/**/**.entity{.ts,.js}"],
+    "synchronize": true
+  }
+```
+
+7. Start local mysql server and create new database 'nestjsrealworld'.
+
+- On application start, tables for all entities will be created.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,6 +183,7 @@ Project Link: [https://github.com/staceyjf/nestMapper](https://github.com/stacey
 - [NestJS DevTools](https://docs.nestjs.com/devtools/overview) for providing the dependency mapping capability to collect metadata.
 - [Mermaid.js](https://mermaid.js.org/intro/) for the visualization tools to turn the metadata into chart visualization.
 - [nology](https://www.linkedin.com/company/nology-io/posts/?feedView=all) for allowing me to share this application, which myself and my partner (Chloe Ballantyne) developed for their internal learning management system while participating in their career switchers' program.
+- [nology](https://github.com/lujakob/nestjs-realworld-example-app) for providing a real world NestJS codebase for me to be able to demo NestMapper.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,11 +193,11 @@ Project Link: [https://github.com/staceyjf/nestMapper](https://github.com/stacey
 [contributors-shield]: https://img.shields.io/github/contributors/staceyjf/nestMapper.svg?style=for-the-badge
 [contributors-url]: https://github.com/staceyjf/nestMapper/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/staceyjf/nestMapper.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
+[forks-url]: https://github.com/staceyjf/nestMapper/network/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
+[stars-url]: https://github.com/staceyjf/nestMapper/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
+[issues-url]: https://github.com/staceyjf/nestMapper/issues
 [license-shield]: https://img.shields.io/github/license/staceyjf/nestMapper.svg?style=for-the-badge
 [license-url]: https://github.com/staceyjf/nestMapper/blob/master/LICENCE
 [product-screenshot]: images/screenshot.png
